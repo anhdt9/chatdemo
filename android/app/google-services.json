@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1048017847201",
+    "project_id": "vscanner-d76fd",
+    "storage_bucket": "vscanner-d76fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048017847201:android:3c8680c7a699233add81e0",
+        "android_client_info": {
+          "package_name": "com.vscanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048017847201-aa8b5eefnj4rglfdsdh2pp8m8f3lnadu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vscanner",
+            "certificate_hash": "0f5cefac25f886cba7a70ab11237da04aacd65fe"
+          }
+        },
+        {
+          "client_id": "1048017847201-lf2korjq70o9ek3bbvpshut8pc5793sh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vscanner",
+            "certificate_hash": "d54cef987dde1f27db68de96e76bc317de3e58fa"
+          }
+        },
+        {
+          "client_id": "1048017847201-56llkavti5fj4obl3mnit8c2m4j35o7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS0YdYUYqh0K7aPNhchnGIVImWMNf8iCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048017847201-56llkavti5fj4obl3mnit8c2m4j35o7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
