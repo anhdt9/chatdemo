@@ -1,0 +1,11 @@
+library routes;
+const String HOME = '/modules.home';
+const String LOGIN = '/modules.login';
+const String SIGN_UP = '/sign_up';
+const String FORGOT_PASSWORD = '/forgot_password';
+const String CREATE_MY_CARD = '/create_my_card';
+const String MY_CARD_DETAIL = '/my_card_detail';
+const String SETTINGS = '/modules.settings';
+const String CAMERA = '/modules.camera';
+const String PREVIEW = '/modules.preview';
+const String PREVIEW_DETAIL = '/modules.preview_detail';
