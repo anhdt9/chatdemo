@@ -18,6 +18,7 @@ class AppTranslations extends Translations {
           'pwd_invalid': 'Password invalid!',
           'have_not_acc': 'New user?',
           'forgot_pwd' : 'Forgot password?',
+          'reset_password' : 'Reset password',
           'connecting_with' : '----- Or connecting with -----'
         },
         'vi_VN': {
@@ -34,6 +35,7 @@ class AppTranslations extends Translations {
           'pwd_invalid': 'Password sai!',
           'have_not_acc': 'Người mới',
           'forgot_pwd' : 'Quên mật khẩu?',
+          'reset_password' : 'Khôi phục mật khẩu',
           'connecting_with' : '----- Hoặc liên kết tài khoản -----'
         }
       };

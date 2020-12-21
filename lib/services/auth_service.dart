@@ -95,4 +95,13 @@ class AuthService {
     await FirebaseAuth.instance.signOut();
     GetStorage().remove(USER_INFO);
   }
+
+  Future<Either<String, Unit>> resetPassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return right(unit);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

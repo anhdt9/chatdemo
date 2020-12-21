@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:vscanner/routes/routes.dart';
 import 'package:vscanner/services/auth_service.dart';
 import 'package:vscanner/utils/utils.dart';
-import 'package:get_storage/get_storage.dart';
 
 class LoginController extends GetxController {
 
