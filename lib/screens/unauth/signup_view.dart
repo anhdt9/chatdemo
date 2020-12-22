@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/unauth/signup/signup_controller.dart';
-import 'package:vscanner/modules/widgets/app_button.dart';
-import 'package:vscanner/modules/widgets/scan_logo.dart';
-import 'package:vscanner/modules/widgets/styles.dart';
+import 'package:vscanner/controllers/signup_controller.dart';
+import 'package:vscanner/widgets/app_button.dart';
+import 'package:vscanner/widgets/scan_logo.dart';
+import 'package:vscanner/widgets/styles.dart';
 
 class SignUpView extends GetView<SignUpController> {
+
+  final SignUpController controller = Get.put(SignUpController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

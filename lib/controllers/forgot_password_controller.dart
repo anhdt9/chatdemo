@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/routes/routes.dart';
+import 'package:vscanner/screens/unauth/login_view.dart';
 import 'package:vscanner/services/auth_service.dart';
 import 'package:vscanner/utils/utils.dart';
 
@@ -34,7 +34,7 @@ class ForgotPasswordController extends GetxController {
       (unit) async {
         showSuccessSnackBar('Sent request password success!');
         await 1.delay();
-        Get.offNamedUntil<dynamic>(LOGIN, (route) => false);
+        Get.offAll<dynamic>(LoginView());
       },
     );
   }

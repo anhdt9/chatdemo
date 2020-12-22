@@ -1,22 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/unauth/forgotPassword/forgot_password_controller.dart';
-import 'package:vscanner/modules/unauth/forgotPassword/forgot_password_view.dart';
-import 'package:vscanner/modules/unauth/login/login_controller.dart';
-import 'package:vscanner/modules/unauth/signup/signup_controller.dart';
-import 'package:vscanner/modules/unauth/signup/signup_view.dart';
-import 'package:vscanner/modules/widgets/app_button.dart';
-import 'package:vscanner/modules/widgets/scan_logo.dart';
-import 'package:vscanner/modules/widgets/styles.dart';
+import 'package:vscanner/controllers/login_controller.dart';
+import 'package:vscanner/screens/unauth/forgot_password_view.dart';
+import 'package:vscanner/screens/unauth/signup_view.dart';
+import 'package:vscanner/widgets/app_button.dart';
+import 'package:vscanner/widgets/scan_logo.dart';
+import 'package:vscanner/widgets/styles.dart';
 
 class LoginView extends GetView<LoginController> {
+
+  final LoginController controller = Get.put(LoginController());
+
   @override
   Widget build(BuildContext context) {
-    final LoginController controller = Get.put(LoginController());
-    Get.put(SignUpController());
-    Get.put(ForgotPasswordController());
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -33,7 +30,8 @@ class LoginView extends GetView<LoginController> {
                     onFieldSubmitted: (_) =>
                         controller.checkEmailFocus(context),
                     decoration: InputDecoration(
-                        errorText: GetUtils.isNullOrBlank(controller.emailError.value)
+                        errorText:
+                            GetUtils.isNullOrBlank(controller.emailError.value)
                                 ? null
                                 : controller.emailError.value,
                         labelText: 'Email',
@@ -58,9 +56,10 @@ class LoginView extends GetView<LoginController> {
                               controller.hidePwd.value =
                                   !controller.hidePwd.value;
                             }),
-                        errorText: GetUtils.isNullOrBlank(controller.pwdError.value)
-                            ? null
-                            : controller.pwdError.value,
+                        errorText:
+                            GetUtils.isNullOrBlank(controller.pwdError.value)
+                                ? null
+                                : controller.pwdError.value,
                         labelText: 'password'.tr,
                         hintText: 'enter_password'.tr,
                         border: buildOutlineInputBorder()),
@@ -130,7 +129,7 @@ class LoginView extends GetView<LoginController> {
                     width: 10,
                   ),
                   GestureDetector(
-                    onTap:controller.signInWithGoogle,
+                    onTap: controller.signInWithGoogle,
                     child: const CircleAvatar(
                       backgroundImage: AssetImage("assets/google.png"),
                       radius: 25,
@@ -138,7 +137,9 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               AppButton(
                 text: 'login_anonymous'.tr,
                 color: Colors.grey,

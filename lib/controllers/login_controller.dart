@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/routes/routes.dart';
+import 'package:vscanner/screens/auth/home_view.dart';
 import 'package:vscanner/services/auth_service.dart';
 import 'package:vscanner/utils/utils.dart';
 
@@ -48,7 +48,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with email success');
-        Get.offNamedUntil<dynamic>(HOME, (route) => false);
+        Get.offAll<dynamic>(HomeView());
       },
     );
   }
@@ -61,7 +61,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with google success');
-        Get.offNamedUntil<dynamic>(HOME, (route) => false);
+        Get.offAll<dynamic>(HomeView());
       },
     );
   }
@@ -74,7 +74,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with facebook success');
-        Get.offNamedUntil<dynamic>(HOME, (route) => false);
+        Get.offAll<dynamic>(HomeView());
       },
     );
   }
@@ -87,7 +87,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with anonymous success');
-        Get.offNamedUntil<dynamic>(HOME, (route) => false);
+        Get.offAll<dynamic>(HomeView());
       },
     );
   }

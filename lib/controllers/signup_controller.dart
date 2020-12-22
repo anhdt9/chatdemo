@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/routes/routes.dart';
+import 'package:vscanner/screens/unauth/login_view.dart';
 import 'package:vscanner/services/auth_service.dart';
 import 'package:vscanner/utils/utils.dart';
 
 class SignUpController extends GetxController {
+
+  final _authService = Get.find<AuthService>();
+
   TextEditingController emailEditCtrl = TextEditingController();
   TextEditingController pwdEditCtrl = TextEditingController();
   TextEditingController pwd2EditCtrl = TextEditingController();
@@ -50,8 +53,6 @@ class SignUpController extends GetxController {
     return isValid;
   }
 
-  final _authService = Get.find<AuthService>();
-
   Future<void> signUpWithEmailPassword() async {
     if(!isValidValues(emailEditCtrl.text, pwdEditCtrl.text, pwd2EditCtrl.text, )){
       return;
@@ -64,7 +65,7 @@ class SignUpController extends GetxController {
       (unit) async {
         showSuccessSnackBar('Sign up with email success');
         await 1.delay();
-        Get.offNamedUntil<dynamic>(LOGIN, (route) => false);
+        Get.offAll<dynamic>(LoginView());
       },
     );
   }

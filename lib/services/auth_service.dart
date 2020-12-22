@@ -1,13 +1,14 @@
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:dartz/dartz.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:vscanner/routes/routes.dart';
-import 'package:vscanner/utils/key.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:vscanner/screens/unauth/login_view.dart';
+import 'package:vscanner/utils/key.dart';
+import 'package:vscanner/utils/utils.dart';
 
-class AuthService {
+class AuthService extends GetxController{
 
   Future<Either<String, Unit>> signUpWithEmailPassword(
       String email, String password) async {
@@ -17,13 +18,13 @@ class AuthService {
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        appPrint('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        appPrint('The account already exists for that email.');
       }
       return left(e.code);
     } catch (e) {
-      print(e);
+      appPrint(e.toString());
       return left(e.toString());
     }
   }
@@ -37,9 +38,9 @@ class AuthService {
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        appPrint('No user found for that email.');
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        appPrint('Wrong password provided for that user.');
       }
       return left(e.code);
     } catch (e) {
@@ -96,7 +97,7 @@ class AuthService {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     GetStorage().remove(USER_INFO);
-    Get.offNamedUntil<dynamic>(LOGIN, (route) => false);
+    Get.offAll<dynamic>(LoginView());
   }
 
   Future<Either<String, Unit>> resetPassword(String email) async {

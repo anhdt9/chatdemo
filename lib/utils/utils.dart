@@ -29,3 +29,7 @@ void fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode ne
     currentFocus.unfocus();
   }
 }
+
+void appPrint(String msg){
+  debugPrint('----- CHAT_DEMO -----' + msg);
+}

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/unauth/forgotPassword/forgot_password_controller.dart';
-import 'package:vscanner/modules/widgets/app_button.dart';
-import 'package:vscanner/modules/widgets/scan_logo.dart';
-import 'package:vscanner/modules/widgets/styles.dart';
+import 'package:vscanner/controllers/forgot_password_controller.dart';
+import 'package:vscanner/widgets/app_button.dart';
+import 'package:vscanner/widgets/scan_logo.dart';
+import 'package:vscanner/widgets/styles.dart';
 
 class ForgotPasswordView extends GetView<ForgotPasswordController> {
 
+  final ForgotPasswordController controller = Get.put(ForgotPasswordController());
+
   @override
   Widget build(BuildContext context) {
-    final ForgotPasswordController controller = Get.find();
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -33,7 +34,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                     hintText: 'enter_email'.tr,
                     border: buildOutlineInputBorder()),
               )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               AppButton(
                 text: 'reset_password'.tr,
                 color: Colors.cyan,

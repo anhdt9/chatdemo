@@ -1,23 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/auth/settings/settings_controller.dart';
-import 'package:vscanner/modules/widgets/app_button.dart';
-import 'package:vscanner/modules/widgets/section_with_title.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:vscanner/controllers/settings_controller.dart';
 import 'package:vscanner/services/auth_service.dart';
 import 'package:vscanner/utils/key.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:vscanner/utils/utils.dart';
+import 'package:vscanner/widgets/app_button.dart';
+import 'package:vscanner/widgets/section_with_title.dart';
 
 class SettingView extends GetView<SettingController> {
-  final AuthService _authService = Get.find<AuthService>();
-  final SettingController _settingController = Get.put(SettingController());
+  const SettingView();
 
   @override
   Widget build(BuildContext context) {
+    appPrint('---  SettingView  building ---');
+
+    final SettingController controller = Get.put(SettingController());
+
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        padding: const EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 25),
+        padding:
+            const EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 25),
         child: Container(
           child: Column(
             children: [
@@ -30,14 +35,14 @@ class SettingView extends GetView<SettingController> {
                     children: ListTile.divideTiles(context: context, tiles: [
                       Obx(() => SwitchListTile(
                           title: Text('notification'.tr),
-                          value: _settingController.noti.value,
-                          onChanged: (changed) => _settingController
-                              .noti.value = !_settingController.noti.value)),
+                          value: controller.noti.value,
+                          onChanged: (changed) =>
+                              controller.noti.value = !controller.noti.value)),
                       Obx(() => SwitchListTile(
                           title: Text('preview_notification'.tr),
-                          value: _settingController.pre_noti.value,
-                          onChanged: (changed) => _settingController.pre_noti
-                              .value = !_settingController.pre_noti.value)),
+                          value: controller.pre_noti.value,
+                          onChanged: (changed) => controller.pre_noti.value =
+                              !controller.pre_noti.value)),
                     ]).toList(),
                   )),
               SectionWithTitle(
@@ -49,36 +54,36 @@ class SettingView extends GetView<SettingController> {
                     children: ListTile.divideTiles(context: context, tiles: [
                       Obx(() => SwitchListTile(
                           title: Text('notification'.tr),
-                          value: _settingController.noti.value,
-                          onChanged: (changed) => _settingController
-                              .noti.value = !_settingController.noti.value)),
+                          value: controller.noti.value,
+                          onChanged: (changed) =>
+                              controller.noti.value = !controller.noti.value)),
                       Obx(() => SwitchListTile(
                           title: Text('preview_notification'.tr),
-                          value: _settingController.pre_noti.value,
-                          onChanged: (changed) => _settingController.pre_noti
-                              .value = !_settingController.pre_noti.value)),
+                          value: controller.pre_noti.value,
+                          onChanged: (changed) => controller.pre_noti.value =
+                              !controller.pre_noti.value)),
                       Obx(() => SwitchListTile(
                           title: Text('notification_vibrate'.tr),
-                          value: _settingController.vibrate.value,
-                          onChanged: (changed) => _settingController.vibrate
-                              .value = !_settingController.vibrate.value)),
+                          value: controller.vibrate.value,
+                          onChanged: (changed) => controller.vibrate.value =
+                              !controller.vibrate.value)),
                       Obx(() => SwitchListTile(
                           title: Text('notification_led'.tr),
-                          value: _settingController.noti_led.value,
-                          onChanged: (changed) => _settingController.noti_led
-                              .value = !_settingController.noti_led.value)),
+                          value: controller.noti_led.value,
+                          onChanged: (changed) => controller.noti_led.value =
+                              !controller.noti_led.value)),
                       Obx(() => SwitchListTile(
                           title: Text('sound'.tr),
-                          value: _settingController.sound.value,
-                          onChanged: (changed) => _settingController
-                              .sound.value = !_settingController.sound.value))
+                          value: controller.sound.value,
+                          onChanged: (changed) =>
+                              controller.sound.value = !controller.sound.value))
                     ]).toList(),
                   )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('language'.tr, style: const TextStyle(fontSize: 16)),
-                  CupertinoSegmentedControl(
+                  CupertinoSegmentedControl<Locale>(
                     groupValue: controller.locale.value,
                     children: {
                       const Locale('vi', 'VN'): Container(
@@ -119,7 +124,7 @@ class SettingView extends GetView<SettingController> {
                   child: AppButton(
                     text: 'logout'.tr,
                     color: Colors.cyan,
-                    onPress: () => {_authService.signOut()},
+                    onPress: () => {Get.find<AuthService>().signOut()},
                   ),
                 ),
               )
