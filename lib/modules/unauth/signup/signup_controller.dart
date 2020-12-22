@@ -64,7 +64,7 @@ class SignUpController extends GetxController {
       (unit) async {
         showSuccessSnackBar('Sign up with email success');
         await 1.delay();
-        Get.offNamedUntil(LOGIN, (route) => false);
+        Get.offNamedUntil<dynamic>(LOGIN, (route) => false);
       },
     );
   }

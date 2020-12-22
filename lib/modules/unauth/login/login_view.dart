@@ -24,7 +24,7 @@ class LoginView extends GetView<LoginController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ScanLogo(),
+              const ScanLogo(),
               Obx(() => TextFormField(
                     controller: controller.emailEditCtrl,
                     keyboardType: TextInputType.text,
@@ -40,7 +40,7 @@ class LoginView extends GetView<LoginController> {
                         hintText: 'enter_email'.tr,
                         border: buildOutlineInputBorder()),
                   )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Obx(() => TextFormField(
                     obscureText: controller.hidePwd.value,
                     controller: controller.pwdEditCtrl,
@@ -65,43 +65,43 @@ class LoginView extends GetView<LoginController> {
                         hintText: 'enter_password'.tr,
                         border: buildOutlineInputBorder()),
                   )),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               AppButton(
                 text: 'login'.tr,
                 color: Colors.cyan,
                 onPress: () async {
-                  FocusScope.of(context).requestFocus(new FocusNode());
+                  FocusScope.of(context).requestFocus(FocusNode());
                   controller.signInWithEmailPassword();
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   RichText(
                     text: TextSpan(
                         text: 'have_not_acc'.tr,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 12,
                         ),
                         children: [
                           TextSpan(
                             text: 'sign_up'.tr,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.blue,
                               fontSize: 12,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(SignUpView()),
+                              ..onTap = () => Get.to<dynamic>(SignUpView()),
                           )
                         ]),
                   ),
                   GestureDetector(
-                    onTap: () => Get.to(ForgotPasswordView()),
+                    onTap: () => Get.to<dynamic>(ForgotPasswordView()),
                     child: Text(
                       'forgot_pwd'.tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.blue,
                         fontSize: 12,
                       ),
@@ -110,10 +110,10 @@ class LoginView extends GetView<LoginController> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10, bottom: 15),
+                padding: const EdgeInsets.only(top: 10, bottom: 15),
                 child: Text(
                   'connecting_with'.tr,
-                  style: TextStyle(color: Colors.black38, fontSize: 12),
+                  style: const TextStyle(color: Colors.black38, fontSize: 12),
                 ),
               ),
               Row(
@@ -121,29 +121,29 @@ class LoginView extends GetView<LoginController> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: controller.signInWithFacebook,
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundImage: AssetImage("assets/facebook.png"),
                       radius: 25,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   GestureDetector(
                     onTap:controller.signInWithGoogle,
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundImage: AssetImage("assets/google.png"),
                       radius: 25,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               AppButton(
                 text: 'login_anonymous'.tr,
                 color: Colors.grey,
                 onPress: () async {
-                  FocusScope.of(context).requestFocus(new FocusNode());
+                  FocusScope.of(context).requestFocus(FocusNode());
                   controller.signInAnonymous();
                 },
               ),

@@ -17,7 +17,7 @@ class SettingView extends GetView<SettingController> {
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        padding: EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 25),
+        padding: const EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 25),
         child: Container(
           child: Column(
             children: [
@@ -25,7 +25,7 @@ class SettingView extends GetView<SettingController> {
                   title: 'your_profile'.tr,
                   child: ListView(
                     semanticChildCount: 2,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     children: ListTile.divideTiles(context: context, tiles: [
                       Obx(() => SwitchListTile(
@@ -43,7 +43,7 @@ class SettingView extends GetView<SettingController> {
               SectionWithTitle(
                   title: 'sound_and_notification'.tr,
                   child: ListView(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     semanticChildCount: 5,
                     shrinkWrap: true,
                     children: ListTile.divideTiles(context: context, tiles: [
@@ -77,29 +77,29 @@ class SettingView extends GetView<SettingController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('language'.tr, style: TextStyle(fontSize: 16)),
+                  Text('language'.tr, style: const TextStyle(fontSize: 16)),
                   CupertinoSegmentedControl(
                     groupValue: controller.locale.value,
                     children: {
-                      Locale('vi', 'VN'): Container(
-                          padding: EdgeInsets.all(6),
+                      const Locale('vi', 'VN'): Container(
+                          padding: const EdgeInsets.all(6),
                           child: Row(children: [
                             Image.asset(
                               'assets/flag-vi.png',
                               width: 24,
                               height: 18,
                             ),
-                            Text('Vi')
+                            const Text('Vi')
                           ])),
-                      Locale('en', 'US'): Container(
-                        padding: EdgeInsets.all(6),
+                      const Locale('en', 'US'): Container(
+                        padding: const EdgeInsets.all(6),
                         child: Row(children: [
                           Image.asset(
                             'assets/flag-en.png',
                             width: 24,
                             height: 18,
                           ),
-                          Text('En'),
+                          const Text('En'),
                         ]),
                       )
                     },

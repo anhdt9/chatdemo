@@ -10,8 +10,8 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      padding: EdgeInsets.only(top: 11, bottom: 11, left: 50, right: 50),
-      child: Text(text, style: TextStyle(fontSize: 18)),
+      padding: const EdgeInsets.only(top: 11, bottom: 11, left: 50, right: 50),
+      child: Text(text, style: const TextStyle(fontSize: 18)),
       onPressed: onPress,
       color: color,
       textColor: Colors.white,

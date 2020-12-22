@@ -24,7 +24,7 @@ class AuthService {
       return left(e.code);
     } catch (e) {
       print(e);
-      return left(e);
+      return left(e.toString());
     }
   }
 
@@ -51,7 +51,7 @@ class AuthService {
     final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
-    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+    final OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
@@ -66,7 +66,7 @@ class AuthService {
 
   Future<Either<String, Unit>> signInWithFacebook() async {
     final AccessToken result = await FacebookAuth.instance.login();
-    final FacebookAuthCredential facebookAuthCredential =
+    final OAuthCredential facebookAuthCredential =
         FacebookAuthProvider.credential(result.token);
 
     try {
@@ -89,14 +89,14 @@ class AuthService {
   }
 
   void saveUserInfo() {
-    User user = FirebaseAuth.instance.currentUser;
+    final User user = FirebaseAuth.instance.currentUser;
     GetStorage().write(USER_INFO, user.toString());
   }
 
-  void signOut() async {
+  Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     GetStorage().remove(USER_INFO);
-    Get.offNamedUntil(LOGIN, (route) => false);
+    Get.offNamedUntil<dynamic>(LOGIN, (route) => false);
   }
 
   Future<Either<String, Unit>> resetPassword(String email) async {

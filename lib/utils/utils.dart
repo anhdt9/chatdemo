@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void showErrorSnackBar(String error) {
-  Get.snackbar(
+  Get.snackbar<dynamic>(
     'Error',
     error,
     snackPosition: SnackPosition.BOTTOM,
@@ -12,7 +12,7 @@ void showErrorSnackBar(String error) {
 }
 
 void showSuccessSnackBar(String message) {
-  Get.snackbar(
+  Get.snackbar<dynamic>(
     'Success',
     message,
     snackPosition: SnackPosition.BOTTOM,

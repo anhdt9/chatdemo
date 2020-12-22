@@ -48,7 +48,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with email success');
-        Get.offNamedUntil(HOME, (route) => false);
+        Get.offNamedUntil<dynamic>(HOME, (route) => false);
       },
     );
   }
@@ -61,7 +61,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with google success');
-        Get.offNamedUntil(HOME, (route) => false);
+        Get.offNamedUntil<dynamic>(HOME, (route) => false);
       },
     );
   }
@@ -74,7 +74,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with facebook success');
-        Get.offNamedUntil(HOME, (route) => false);
+        Get.offNamedUntil<dynamic>(HOME, (route) => false);
       },
     );
   }
@@ -87,7 +87,7 @@ class LoginController extends GetxController {
       },
       (unit) async {
         showSuccessSnackBar('Sign in with anonymous success');
-        Get.offNamedUntil(HOME, (route) => false);
+        Get.offNamedUntil<dynamic>(HOME, (route) => false);
       },
     );
   }

@@ -15,7 +15,7 @@ class SignUpView extends GetView<SignUpController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ScanLogo(),
+              const ScanLogo(),
               Obx(() => TextFormField(
                 controller: controller.emailEditCtrl,
                 keyboardType: TextInputType.text,
@@ -31,7 +31,7 @@ class SignUpView extends GetView<SignUpController> {
                     hintText: 'enter_email'.tr,
                     border: buildOutlineInputBorder()),
               )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Obx(() => TextFormField(
                 obscureText: controller.hidePwd.value,
                 controller: controller.pwdEditCtrl,
@@ -56,7 +56,7 @@ class SignUpView extends GetView<SignUpController> {
                     hintText: 'enter_password'.tr,
                     border: buildOutlineInputBorder()),
               )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Obx(() => TextFormField(
                 obscureText: controller.hidePwd2.value,
                 controller: controller.pwd2EditCtrl,
@@ -81,16 +81,16 @@ class SignUpView extends GetView<SignUpController> {
                     hintText: 'enter_password'.tr,
                     border: buildOutlineInputBorder()),
               )),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               AppButton(
                 text: 'sign_up'.tr,
                 color: Colors.cyan,
                 onPress: () async {
-                  FocusScope.of(context).requestFocus(new FocusNode());
+                  FocusScope.of(context).requestFocus(FocusNode());
                   controller.signUpWithEmailPassword();
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),

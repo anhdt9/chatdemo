@@ -18,8 +18,8 @@ void main() async {
   await SystemChrome.setEnabledSystemUIOverlays([]);
   DependencyInjection.init();
 
-  final user = GetStorage().read(USER_INFO);
-  final lang = GetStorage().read(LANGUAGE_LANGUAGECODE);
+  final String user = GetStorage().read(USER_INFO);
+  final String lang = GetStorage().read(LANGUAGE_LANGUAGECODE);
 
   runApp(GetMaterialApp(
     showPerformanceOverlay: true,
@@ -29,6 +29,6 @@ void main() async {
     initialBinding: GetUtils.isNull(user) ? LoginBinding() : HomeBinding(),
     locale: (!GetUtils.isNull(lang) && lang == 'en') ? Locale('en', 'US') : Locale('vi', 'VN'),
     debugShowCheckedModeBanner: false,
-    getPages: AppRouters.routes,
+    getPages: routes,
   ));
 }

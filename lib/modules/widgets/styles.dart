@@ -14,18 +14,18 @@ Stack bottomNavigationBarIemIcon(IconData iconData, RxInt counter) =>
         Obx(() => Positioned(
               right: 0,
               child: Container(
-                padding: EdgeInsets.all(1),
+                padding: const EdgeInsets.all(1),
                 decoration: BoxDecoration(
                   color: Colors.red,
                   borderRadius: BorderRadius.circular(6),
                 ),
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   minWidth: 12,
                   minHeight: 12,
                 ),
                 child: Text(
                   '${counter.value}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 8,
                   ),
