@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/forgotPassword/forgot_password_controller.dart';
+import 'package:vscanner/modules/unauth/forgotPassword/forgot_password_controller.dart';
 import 'package:vscanner/modules/widgets/app_button.dart';
 import 'package:vscanner/modules/widgets/scan_logo.dart';
+import 'package:vscanner/modules/widgets/styles.dart';
 
 class ForgotPasswordView extends GetView<ForgotPasswordController> {
 
@@ -46,13 +47,5 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
         ),
       ),
     );
-  }
-
-  OutlineInputBorder buildOutlineInputBorder() {
-    return OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey.withAlpha(50), width: 0),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(19),
-        ));
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/signup/signup_controller.dart';
+import 'package:vscanner/modules/unauth/signup/signup_controller.dart';
 import 'package:vscanner/modules/widgets/app_button.dart';
 import 'package:vscanner/modules/widgets/scan_logo.dart';
+import 'package:vscanner/modules/widgets/styles.dart';
 
 class SignUpView extends GetView<SignUpController> {
   @override
@@ -32,7 +33,7 @@ class SignUpView extends GetView<SignUpController> {
               )),
               SizedBox(height: 20),
               Obx(() => TextFormField(
-                obscureText: controller.showPwd.value,
+                obscureText: controller.hidePwd.value,
                 controller: controller.pwdEditCtrl,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
@@ -41,12 +42,12 @@ class SignUpView extends GetView<SignUpController> {
                 decoration: InputDecoration(
 //                        icon: Icon(Icons.lock),
                     suffixIcon: IconButton(
-                        icon: Icon(controller.showPwd.value
+                        icon: Icon(controller.hidePwd.value
                             ? Icons.visibility
                             : Icons.visibility_off),
                         onPressed: () {
-                          controller.showPwd.value =
-                          !controller.showPwd.value;
+                          controller.hidePwd.value =
+                          !controller.hidePwd.value;
                         }),
                     errorText: GetUtils.isNullOrBlank(controller.pwdError.value)
                         ? null
@@ -57,7 +58,7 @@ class SignUpView extends GetView<SignUpController> {
               )),
               SizedBox(height: 20),
               Obx(() => TextFormField(
-                obscureText: controller.showPwd2.value,
+                obscureText: controller.hidePwd2.value,
                 controller: controller.pwd2EditCtrl,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
@@ -66,12 +67,12 @@ class SignUpView extends GetView<SignUpController> {
                 decoration: InputDecoration(
 //                        icon: Icon(Icons.lock),
                     suffixIcon: IconButton(
-                        icon: Icon(controller.showPwd2.value
+                        icon: Icon(controller.hidePwd2.value
                             ? Icons.visibility
                             : Icons.visibility_off),
                         onPressed: () {
-                          controller.showPwd2.value =
-                          !controller.showPwd2.value;
+                          controller.hidePwd2.value =
+                          !controller.hidePwd2.value;
                         }),
                     errorText: GetUtils.isNullOrBlank(controller.pwd2Error.value)
                         ? null
@@ -95,13 +96,5 @@ class SignUpView extends GetView<SignUpController> {
         ),
       ),
     );
-  }
-
-  OutlineInputBorder buildOutlineInputBorder() {
-    return OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey.withAlpha(50), width: 0),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(19),
-        ));
   }
 }

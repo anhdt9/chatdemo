@@ -15,8 +15,8 @@ class SignUpController extends GetxController {
   var emailError = ''.obs;
   var pwdError = ''.obs;
   var pwd2Error = ''.obs;
-  var showPwd = false.obs;
-  var showPwd2 = false.obs;
+  var hidePwd = true.obs;
+  var hidePwd2 = true.obs;
 
   bool isValidValues(String email, String password, String password2) {
     bool isValid = true;

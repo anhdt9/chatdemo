@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class ScanLogo extends StatelessWidget {
@@ -6,7 +7,7 @@ class ScanLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Lottie.asset(
       'assets/scan.json',
-      height: 300,
+      height: Get.height /3,
       fit: BoxFit.fill,
     );
   }

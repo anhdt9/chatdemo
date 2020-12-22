@@ -3,7 +3,9 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:dartz/dartz.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:vscanner/routes/routes.dart';
 import 'package:vscanner/utils/key.dart';
+import 'package:get/get.dart';
 
 class AuthService {
 
@@ -94,6 +96,7 @@ class AuthService {
   void signOut() async {
     await FirebaseAuth.instance.signOut();
     GetStorage().remove(USER_INFO);
+    Get.offNamedUntil(LOGIN, (route) => false);
   }
 
   Future<Either<String, Unit>> resetPassword(String email) async {

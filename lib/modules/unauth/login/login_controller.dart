@@ -15,7 +15,7 @@ class LoginController extends GetxController {
 
   var emailError = ''.obs;
   var pwdError = ''.obs;
-  var showPwd = false.obs;
+  var hidePwd = true.obs;
 
   final _authService = Get.find<AuthService>();
 
@@ -90,10 +90,6 @@ class LoginController extends GetxController {
         Get.offNamedUntil(HOME, (route) => false);
       },
     );
-  }
-
-  void signOut(){
-    _authService.signOut();
   }
 
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:vscanner/modules/home/home_binding.dart';
-import 'package:vscanner/modules/login/login_binding.dart';
+import 'package:vscanner/modules/auth/home/home_binding.dart';
+import 'package:vscanner/modules/unauth/login/login_binding.dart';
 import 'package:vscanner/routes/app_routes.dart';
 import 'package:vscanner/routes/routes.dart';
 import 'package:vscanner/utils/app_translatation.dart';
@@ -19,13 +19,15 @@ void main() async {
   DependencyInjection.init();
 
   final user = GetStorage().read(USER_INFO);
+  final lang = GetStorage().read(LANGUAGE_LANGUAGECODE);
+  debugPrint('lang = ' + lang);
 
   runApp(GetMaterialApp(
     translations: AppTranslations(),
     title: 'VScanner',
     initialRoute: GetUtils.isNull(user) ? LOGIN : HOME,
     initialBinding: GetUtils.isNull(user) ? LoginBinding() : HomeBinding(),
-    locale: Locale('en', 'US'),
+    locale: lang == 'en' ? Locale('en', 'US') : Locale('vi', 'VN'),
     debugShowCheckedModeBanner: false,
     getPages: AppRouters.routes,
   ));
