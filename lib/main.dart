@@ -20,14 +20,14 @@ void main() async {
 
   final user = GetStorage().read(USER_INFO);
   final lang = GetStorage().read(LANGUAGE_LANGUAGECODE);
-  debugPrint('lang = ' + lang);
 
   runApp(GetMaterialApp(
+    showPerformanceOverlay: true,
     translations: AppTranslations(),
     title: 'VScanner',
     initialRoute: GetUtils.isNull(user) ? LOGIN : HOME,
     initialBinding: GetUtils.isNull(user) ? LoginBinding() : HomeBinding(),
-    locale: lang == 'en' ? Locale('en', 'US') : Locale('vi', 'VN'),
+    locale: (!GetUtils.isNull(lang) && lang == 'en') ? Locale('en', 'US') : Locale('vi', 'VN'),
     debugShowCheckedModeBanner: false,
     getPages: AppRouters.routes,
   ));
