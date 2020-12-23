@@ -54,10 +54,10 @@ class SignUpController extends GetxController {
   }
 
   Future<void> signUpWithEmailPassword() async {
-    if(!isValidValues(emailEditCtrl.text, pwdEditCtrl.text, pwd2EditCtrl.text, )){
+    if(!isValidValues(emailEditCtrl.text.trim(), pwdEditCtrl.text.trim(), pwd2EditCtrl.text.trim(), )){
       return;
     }
-    final resultSignUp = await _authService.signUpWithEmailPassword(emailEditCtrl.text, pwdEditCtrl.text);
+    final resultSignUp = await _authService.signUpWithEmailPassword(emailEditCtrl.text.trim(), pwdEditCtrl.text.trim());
     resultSignUp.fold(
       (error) async {
         showErrorSnackBar(error);

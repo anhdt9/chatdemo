@@ -19,6 +19,7 @@ class SettingView extends GetView<SettingController> {
     final SettingController controller = Get.put(SettingController());
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         padding:
@@ -76,7 +77,8 @@ class SettingView extends GetView<SettingController> {
                           title: Text('sound'.tr),
                           value: controller.sound.value,
                           onChanged: (changed) =>
-                              controller.sound.value = !controller.sound.value))
+                              controller.sound.value = !controller.sound.value)),
+                      ListTile(title: Text('change_password'.tr), onTap: controller.changePassword,)
                     ]).toList(),
                   )),
               Row(

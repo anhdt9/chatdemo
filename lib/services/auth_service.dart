@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -90,8 +92,9 @@ class AuthService extends GetxController{
   }
 
   void saveUserInfo() {
-    final User user = FirebaseAuth.instance.currentUser;
-    GetStorage().write(USER_INFO, user.toString());
+    final UserInfo userInfo = FirebaseAuth.instance.currentUser.providerData[0];
+    appPrint('user info = ' + userInfo.toString());
+    GetStorage().write(USER_INFO, userInfo.toString());
   }
 
   Future<void> signOut() async {

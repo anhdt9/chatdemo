@@ -22,9 +22,9 @@ void main() async {
     debugShowCheckedModeBanner: false,
     translations: AppTranslations(),
     title: 'VScanner',
-    locale: (!GetUtils.isNull(lang) && lang == 'en')
-        ? const Locale('en', 'US')
-        : const Locale('vi', 'VN'),
+    locale: (!GetUtils.isNull(lang) && lang == 'vi')
+        ? const Locale('vi', 'VN')
+        : const Locale('en', 'US'),
     initialBinding: AuthBinding(),
     home: GetUtils.isNullOrBlank(user) ? LoginView() : HomeView(),
   ));

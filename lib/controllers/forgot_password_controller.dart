@@ -21,11 +21,11 @@ class ForgotPasswordController extends GetxController {
   }
 
   Future<void> resetPassword() async {
-    if (!isValidValues(emailEditCtrl.text)) {
+    if (!isValidValues(emailEditCtrl.text.trim())) {
       return;
     }
     final _authService = Get.find<AuthService>();
-    final result = await _authService.resetPassword(emailEditCtrl.text);
+    final result = await _authService.resetPassword(emailEditCtrl.text.trim());
 
     result.fold(
       (error) async {
